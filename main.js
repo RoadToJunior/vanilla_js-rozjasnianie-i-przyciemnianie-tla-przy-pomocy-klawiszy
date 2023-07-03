@@ -11,11 +11,22 @@ const changeColor = (e) => {
   // 38 - strzałka do góry
   // 40 - strzalka w dół
 
-  // wciśnięcie klawisza strzałki do góry ma zmieniać kolor (stopniowo) na biały czyli rgb(255,255,255). Wciśniecie klawisza strzałki w dół ma zmienić kolor stopniowo na czarny (docelowo rgb(0,0,0)) 
+  // wciśnięcie klawisza strzałki do góry ma zmieniać kolor (stopniowo) na biały czyli rgb(255,255,255). Wciśniecie klawisza strzałki w dół ma zmienić kolor stopniowo na czarny (docelowo rgb(0,0,0))
   //tutaj twój kod
   // wersja 1 - instrukcja if
   // wersja 2 - instrukcja switch
 
-}
+  if (e.keyCode === 38) {
+    document.body.style.backgroundColor = `rgb(${(red += 5)}, ${(green += 5)}, ${(blue += 5)})`;
+    // red += 5;
+    // green += 5;
+    // blue += 5;
+  } else if (e.keyCode === 40) {
+    document.body.style.backgroundColor = `rgb(${(red -= 5)}, ${(green -= 5)}, ${(blue -= 5)})`;
+    // red -= 5;
+    // green -= 5;
+    // blue -= 5;
+  }
+};
 
-window.addEventListener('keydown', changeColor)
+window.addEventListener("keydown", changeColor);
