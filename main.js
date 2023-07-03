@@ -16,16 +16,19 @@ const changeColor = (e) => {
   // wersja 1 - instrukcja if
   // wersja 2 - instrukcja switch
 
-  if (e.keyCode === 38) {
-    document.body.style.backgroundColor = `rgb(${(red += 5)}, ${(green += 5)}, ${(blue += 5)})`;
-    // red += 5;
-    // green += 5;
-    // blue += 5;
-  } else if (e.keyCode === 40) {
-    document.body.style.backgroundColor = `rgb(${(red -= 5)}, ${(green -= 5)}, ${(blue -= 5)})`;
-    // red -= 5;
-    // green -= 5;
-    // blue -= 5;
+  // if (e.keyCode === 38) {
+  //   document.body.style.backgroundColor = `rgb(${(red += 5)}, ${(green += 5)}, ${(blue += 5)})`;
+  // } else if (e.keyCode === 40) {
+  //   document.body.style.backgroundColor = `rgb(${(red -= 5)}, ${(green -= 5)}, ${(blue -= 5)})`;
+  // }
+
+  switch (e.keyCode) {
+    case 38:
+      document.body.style.backgroundColor = `rgb(${(red += 5)}, ${(green += 5)}, ${(blue += 5)})`;
+      break;
+    case 40:
+      document.body.style.backgroundColor = `rgb(${(red -= 5)}, ${(green -= 5)}, ${(blue -= 5)})`;
+      break;
   }
 };
 
