@@ -1,13 +1,12 @@
 /* Gotowy projekt - sprzawdz działanie strzałek i zrób podobnie. http://websamuraj.pl/examples/js/projekt4-zad2/ */
 
-let red = 100;
-let green = 100;
-let blue = 100;
+let color = 100;
 
-document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+document.body.style.backgroundColor = `rgb(${color}, ${color}, ${color})`;
 
 const changeColor = (e) => {
   console.log(e.keyCode, e.which);
+  console.log(color);
   // 38 - strzałka do góry
   // 40 - strzalka w dół
 
@@ -16,20 +15,28 @@ const changeColor = (e) => {
   // wersja 1 - instrukcja if
   // wersja 2 - instrukcja switch
 
-  // if (e.keyCode === 38) {
-  //   document.body.style.backgroundColor = `rgb(${(red += 5)}, ${(green += 5)}, ${(blue += 5)})`;
-  // } else if (e.keyCode === 40) {
-  //   document.body.style.backgroundColor = `rgb(${(red -= 5)}, ${(green -= 5)}, ${(blue -= 5)})`;
-  // }
-
-  switch (e.keyCode) {
-    case 38:
-      document.body.style.backgroundColor = `rgb(${(red += 5)}, ${(green += 5)}, ${(blue += 5)})`;
-      break;
-    case 40:
-      document.body.style.backgroundColor = `rgb(${(red -= 5)}, ${(green -= 5)}, ${(blue -= 5)})`;
-      break;
+  if (e.keyCode === 38 && color < 255) {
+    color += 5;
+  } else if (e.keyCode === 40 && color >= 0) {
+    color -= 5;
   }
+  document.body.style.backgroundColor = `rgb(${color}, ${color}, ${color})`;
 };
+
+//   switch (e.keyCode) {
+//     case 38:
+//       // document.body.style.backgroundColor = `rgb(${(red += 5)}, ${(green += 5)}, ${(blue += 5)})`
+//       red++;
+//       green++;
+//       blue++;
+//       break;
+//     case 40:
+//       // document.body.style.backgroundColor = `rgb(${(red -= 5)}, ${(green -= 5)}, ${(blue -= 5)})`;
+//       red -= 5;
+//       green -= 5;
+//       blue -= 5;
+//       break;
+//   }
+// };
 
 window.addEventListener("keydown", changeColor);
